@@ -2,6 +2,7 @@ package controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,26 @@ public class IndexController {
 	@RequestMapping("/hello1")
 	public ModelAndView hello1() {
 		ModelAndView mav = new ModelAndView("redirect:/index");
+		return mav;
+	}
+
+	@RequestMapping("/mycheck")
+	public ModelAndView check(HttpSession session) {
+		Integer i = (Integer) session.getAttribute("count");
+		if (i == null) {
+			i = 0;
+		}
+		i++;
+		session.setAttribute("count", i);
+		ModelAndView mav = new ModelAndView("mycheck");
+		return mav;
+	}
+
+	@RequestMapping("/myclear")
+	public ModelAndView clear(HttpSession session) {
+		session.removeAttribute("count");
+//Лђеп     session.setAttribute("count", -1);
+		ModelAndView mav = new ModelAndView("redirect:/mycheck");
 		return mav;
 	}
 }
