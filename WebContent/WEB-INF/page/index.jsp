@@ -13,3 +13,7 @@
 <h3>
 	<a href="./mycheck">计数</a>
 </h3>
+
+<h3>
+	<a href="./upload.jsp">上传文件</a>
+</h3>
