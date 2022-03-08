@@ -9,10 +9,23 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
+
 	@RequestMapping("/index")
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("message", "Hello Spring MVC");
+		return mav;
+	}
+
+	@RequestMapping("/jump")
+	public ModelAndView jump() {
+		ModelAndView mav = new ModelAndView("redirect:/index");
+		return mav;
+	}
+
+	@RequestMapping("/hello1")
+	public ModelAndView hello1() {
+		ModelAndView mav = new ModelAndView("redirect:/index");
 		return mav;
 	}
 }
