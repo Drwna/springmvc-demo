@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 
 <h1>${message}</h1>
+
+<h4>${date}</h4>
+
 <h3>
 	<a href="./hello">hello,java</a>
 </h3>
